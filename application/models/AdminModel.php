@@ -22,7 +22,16 @@
 		}
 
 		function getFilterUsers($data){
-			$this->db->select('nombre_usuario, apellido_paterno, apellido_materno, usuario.rut_usuario, usuario.dv');
+			$this->db->select('usuario.nombre_usuario, usuario.apellido_paterno, usuario.apellido_materno, usuario.rut_usuario, usuario.dv');
+			$this->db->from('profesor');
+			$this->db->where('id_facultad', $data);
+			$this->db->join('usuario', 'usuario.rut_usuario = profesor.rut_usuario', 'left');
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function getDataCurriculumUser($data){
+			$this->db->select('usuarionombre_usuario, usuarioapellido_paterno, usuarioapellido_materno, usuario.rut_usuario, usuario.dv');
 			$this->db->from('profesor');
 			$this->db->where('id_facultad', $data);
 			$this->db->join('usuario', 'usuario.rut_usuario = profesor.rut_usuario', 'left');

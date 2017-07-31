@@ -39,5 +39,13 @@
 			$this->load->view('admin/lista_usuarios', $data);
 			$this->load->view('plantilla/footer');
 		}
+
+		public function curriculum($rut)
+		{
+			$data['rut'] = $rut;
+			$this->load->view('plantilla/header');
+			$this->load->view('admin/detalle_curriculum', $data);
+			$this->load->view('plantilla/footer');
+		}
 	}
 ?>

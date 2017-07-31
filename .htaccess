@@ -11,4 +11,13 @@ RewriteRule (.*?)index\.php/*(.*) compromisomvc/$1$2 [R=301,NE,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ compromisomvc/index.php/$1 [L]
+
+
+# Prevent user access to the CI system folder
+RewriteCond %{REQUEST_URI} ^system.*
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+# Prevent user acces to the CI applicationfolder
+RewriteCond %{REQUEST_URI} ^application.*
+RewriteRule ^(.*)$ index.php?/$1 [L]
 </IfModule>
