@@ -32,7 +32,11 @@
 			$data['facultades'] = json_decode(json_encode($this->AdminModel->getAllFacultades()), true);
 			//Relativos al filtrado del contenido obteniendo datos.
 			$filtro['id_facultad'] = $this->input->post('facultades');
-			$data['usuariosfiltrados'] = $this->AdminModel->getFilterUsers($filtro['id_facultad']);
+			if (!empty($filtro['id_facultad'])) {
+				$data['usuariosfiltrados'] = $this->AdminModel->getFilterUsers($filtro['id_facultad']);	
+			}else{
+				$data['usuariosfiltrados'] = array ();
+			}
 			//Relativos a la configuracion general de la pagina.
 			$data['titulo'] = 'Listar usuarios';
 			$this->load->view('plantilla/header');
