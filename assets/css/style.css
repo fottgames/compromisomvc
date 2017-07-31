@@ -1,0 +1,18 @@
+.panel-upla {
+  border-color: #0099cc;
+}
+.panel-upla > .panel-heading {
+  color: #fff;
+  background-color: #0099cc;
+  border-color: #0099cc;
+}
+.panel-upla > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #0099cc;
+}
+.panel-upla > .panel-heading .badge {
+  color: #0099cc;
+  background-color: #fff;
+}
+.panel-upla > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #0099cc;
+}
