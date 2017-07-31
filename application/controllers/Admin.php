@@ -47,6 +47,7 @@
 		public function curriculum($rut)
 		{
 			$data['rut'] = $rut;
+			$data['titulo'] = "Detalle Curriculum";
 			$this->load->view('plantilla/header');
 			$this->load->view('admin/detalle_curriculum', $data);
 			$this->load->view('plantilla/footer');

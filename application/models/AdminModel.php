@@ -31,7 +31,24 @@
 		}
 
 		function getDataCurriculumUser($data){
-			$this->db->select('usuarionombre_usuario, usuarioapellido_paterno, usuarioapellido_materno, usuario.rut_usuario, usuario.dv');
+			$this->db->select('
+				usuario.nombre_usuario, 
+				usuario.apellido_paterno, 
+				usuario.apellido_materno, 
+				usuario.rut_usuario, 
+				usuario.dv,
+				profesor.direccion_particular,
+				profesor.celular,
+				profesor.correo_personal,
+				profesor.correo_institucional,
+				profesor.id_facultad,
+				profesor.id_departamento,
+				profesor.jerarquia_academica,
+				profesor.tipo_contrato,
+				profesor.telefono_institucional,
+				profesor.ciudad_region
+
+				');
 			$this->db->from('profesor');
 			$this->db->where('id_facultad', $data);
 			$this->db->join('usuario', 'usuario.rut_usuario = profesor.rut_usuario', 'left');
