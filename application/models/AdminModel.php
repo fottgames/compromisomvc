@@ -21,6 +21,19 @@
 			return $query->result_array();
 		}
 
+		function isUserinBD($data){
+			$this->db->select('rut_usuario');
+			$this->db->from('usuario');
+			$this->db->where('rut_usuario', $data);
+			$result = $this->db->get();
+			if ($result->num_rows() > 0) {
+				return true;
+			}else{
+				return false;
+			}
+			
+		}
+
 		function getFilterUsers($data){
 			$this->db->select('usuario.nombre_usuario, usuario.apellido_paterno, usuario.apellido_materno, usuario.rut_usuario, usuario.dv');
 			$this->db->from('profesor');

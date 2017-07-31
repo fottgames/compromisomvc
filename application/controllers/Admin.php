@@ -44,9 +44,24 @@
 			$this->load->view('plantilla/footer');
 		}
 
-		public function curriculum($rut)
-		{
-			$data['rut'] = $rut;
+		public function curriculum($rut_usuario=null)
+		{	
+			$rut = $rut_usuario;
+			if (empty($rut)) {
+				$data['heading'] = 'No se ha pasado dato de usuario';
+				$data['message'] = 'No ha sido pasada ninguna variable de usuario para visualizar';
+				$this->load->view('errors/cli/error_404.php', $data);
+				return;
+			}
+
+			$isUserInBd = $this->AdminModel->isUserinBD($rut);
+			if ($isUserInBd == false) {
+				$data['heading'] = 'No existe en la base de datos';
+				$data['message'] = 'El usuario solicitado no existe en la base de datos';
+				$this->load->view('errors/cli/error_404.php', $data);
+				return;
+			}
+
 			$data['titulo'] = "Detalle Curriculum";
 			$this->load->view('plantilla/header');
 			$this->load->view('admin/detalle_curriculum', $data);

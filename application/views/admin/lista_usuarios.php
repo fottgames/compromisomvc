@@ -59,7 +59,7 @@
 								<tr>
 									<td><?php echo $value['rut_usuario']." - ".$value['dv']; ?></td>
 									<td><?php echo $value['nombre_usuario']." ".$value['apellido_paterno']." ".$value['apellido_materno']; ?></td>
-									<td></td>
+									<td><a href="<?php echo base_url().'Admin/Curriculum/'.base64_encode($value['rut_usuario']); ?>">Ver Curriculum</a></td>
 								</tr>
 							<?php endforeach ?>
 						</tbody>
