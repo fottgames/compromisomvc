@@ -523,4 +523,4 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 //clave de seguridad para login
-$config['encryption_key'] = 'REALLY_LONG_NUMBER';
+$config['encryption_key'] = 'compromiso_academico';
