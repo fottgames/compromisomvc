@@ -1,3 +1,5 @@
-<div class="col-xs-12 text-center">
-		
+
+<div class="row">
+	lorem1000
 </div>
+

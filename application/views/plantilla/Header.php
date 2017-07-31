@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title><?php //echo $data['titulo']; ?>  Compromiso Académico</title>
+	<title>Compromiso Académico</title>
 
 	<!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>assets/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,3 +40,5 @@
     <![endif]-->
 </head>
 <body>
+
+<div id="wrapper">

@@ -16,8 +16,10 @@
 		}
 
 		public function Index(){
+			$data['titulo'] = "Admin";
 			//$data['facultades'] = json_decode(json_encode($this->AdminModel->getAllFacultades()), true);
-			$this->load->view('plantilla/header');
+			$this->load->view('plantilla/header', $data);
+			$this->load->view('plantilla/navbar');
 			//$this->load->view('admin/index', $data);
 			$this->load->view('plantilla/footer');
 		}
@@ -39,8 +41,9 @@
 			}
 			//Relativos a la configuracion general de la pagina.
 			$data['titulo'] = 'Listar usuarios';
-			$this->load->view('plantilla/header');
-			$this->load->view('admin/lista_usuarios', $data);
+			$this->load->view('plantilla/header', $data);
+			$this->load->view('plantilla/navbar');
+			$this->load->view('admin/lista_usuarios');
 			$this->load->view('plantilla/footer');
 		}
 
@@ -64,6 +67,7 @@
 
 			$data['titulo'] = "Detalle Curriculum";
 			$this->load->view('plantilla/header');
+			$this->load->view('plantilla/navbar');
 			$this->load->view('admin/detalle_curriculum', $data);
 			$this->load->view('plantilla/footer');
 		}
