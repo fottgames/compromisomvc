@@ -13,6 +13,14 @@
 			return $query->result();
 		}
 
+		function getAllDepartamentos(int $data){
+			$this->db->select('id_departamento, nombre_departamento');
+			$this->db->from('departamento');
+			$this->db->where('id_facultad', $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
 		function getFilterUsers($data){
 			$this->db->select('nombre_usuario, apellido_paterno, apellido_materno, usuario.rut_usuario, usuario.dv');
 			$this->db->from('profesor');

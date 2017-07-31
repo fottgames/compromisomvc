@@ -43,8 +43,30 @@
 </div>
 <div class="row">
 	<div class="container">
-		<pre>
-			<?php print_r($usuariosfiltrados) ?>
-		</pre>
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-12 table-responsive">
+					<table id="example1" class="table table-bordered table-striped">
+						<thead>
+							<tr>
+							  <th>Rut</th>
+							  <th>Nombre</th>
+							  <th>Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($usuariosfiltrados as $key => $value): ?>
+								<tr>
+									<td><?php echo $value['rut_usuario']." - ".$value['dv']; ?></td>
+									<td><?php echo $value['nombre_usuario']." ".$value['apellido_paterno']." ".$value['apellido_materno']; ?></td>
+									<td></td>
+								</tr>
+							<?php endforeach ?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+			<?php //echo '<pre>'; print_r($usuariosfiltrados); echo '</pre>'; ?>
 	</div>
 </div>
