@@ -21,10 +21,6 @@
 		'class' => 'form-control',
 	);
 ?>
-<div class="row">
-	<div class="container">
-		<h1><?php echo $titulo; ?></h1>
-		<hr>
 		<div class="row">
 			<div class="col-xs-6">
 				<?php
@@ -39,10 +35,7 @@
 				
 			</div>
 		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="container">
+
 		<div class="row">
 			<div class="form-group">
 				<div class="col-md-12 table-responsive">
@@ -59,7 +52,7 @@
 								<tr>
 									<td><?php echo $value['rut_usuario']." - ".$value['dv']; ?></td>
 									<td><?php echo $value['nombre_usuario']." ".$value['apellido_paterno']." ".$value['apellido_materno']; ?></td>
-									<td><a href="<?php echo base_url().'Admin/Curriculum/'.base64_encode($value['rut_usuario']); ?>">Ver Curriculum</a></td>
+									<td><a href="<?php echo base_url().'Admin/Curriculum/'.$value['rut_usuario']; ?>">Ver Curriculum</a></td>
 								</tr>
 							<?php endforeach ?>
 						</tbody>
@@ -68,5 +61,3 @@
 			</div>
 		</div>
 			<?php //echo '<pre>'; print_r($usuariosfiltrados); echo '</pre>'; ?>
-	</div>
-</div>
