@@ -44,14 +44,12 @@
 
 			$ConsultaSesion = $this->webservice->getDatos_v2('POST', 'seguridad', array('recurso' => 'validausuario',  'variable' => array('rut' => $rut,  'pass' => $password)));
 
-			//$this->session->set_userdata(array('r_usuario' => 18256317));
-			$_SESSION['x_session'] = $ConsultaSesion['datos']['SessionID'];
-			echo $_SESSION['x_session'];
-			echo "<br>";
-			echo "<pre>";
-			print_r($ConsultaSesion);
-			echo "</pre>";
-			
+			$this->session->x_session = $ConsultaSesion['datos']['SessionID'];
+			$this->session->r_usuario = $ConsultaSesion['datos']['RUT'];
+
+			echo $this->session->userdata('x_session');
+			echo $this->session->userdata('r_usuario');
+						
 		}
 	}
 ?>

@@ -6,7 +6,7 @@
 					<h3 class="panel-title"><?php echo $titulo; ?></h3>
 				</div>
 				<div class="panel-body">
-					<form role="form" method="POST" action="Login/valida/">
+					<form role="form" method="POST" action="<?php echo base_url() ?>Login/valida/">
 						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="E-mail" name="rut" type="text" autofocus>
