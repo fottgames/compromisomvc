@@ -118,7 +118,7 @@
 					  <th>Universidad</th>
 					  <th>Año obtencion</th>
 					  <th>Tipo</th>
-					  <th>Evidencia</th>
+					  <th width="50px;">Evidencia</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -151,7 +151,7 @@
 					  <th>Titulo</th>
 					  <th>Universidad</th>
 					  <th>Año obtencion</th>
-					  <th>Evidencia</th>
+					  <th width="50px;">Evidencia</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -184,7 +184,7 @@
 					  <th>Asignatura</th>
 					  <th>Tipo</th>
 					  <th>Años experiencia</th>
-					  <th>Evidencia</th>
+					  <th width="50px;">Evidencia</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -218,7 +218,7 @@
 					  <th>Año inicio</th>
 					  <th>Año termino</th>
 					  <th>Correo o numero de contacto de la organizacion</th>
-					  <th>Evidencia</th>
+					  <th width="50px;">Evidencia</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -232,7 +232,7 @@
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
 						</tr>
 					<?php endforeach ?>
-					<?php if (empty($allData['experiencia_docente'])): ?>
+					<?php if (empty($allData['experiencia_profesional'])): ?>
 						<tr>
 							<td colspan="6">No hay datos disponibles</td>
 						</tr>
@@ -256,7 +256,7 @@
 					  <th>Año Revista</th>
 					  <th>Estado Revista</th>
 					  <th>Indexacion</th>
-					  <th>Archivo</th>
+					  <th width="50px;">Evidencia</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -272,9 +272,285 @@
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
 						</tr>
 					<?php endforeach ?>
-					<?php if (empty($allData['experiencia_docente'])): ?>
+					<?php if (empty($allData['publicaciones'])): ?>
 						<tr>
 							<td colspan="8">No hay datos disponibles</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 10px;">
+	<div class="col-xs-12">
+		<b style="font-size: 20px;">8. Presentaciones de ponencias en congresos, seminarios o cursos</b>
+		<div class="form-group">
+			<table id="example1" class="table table-responsive table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+					  <th>Nombre de la actividad</th>
+					  <th>Tipo</th>
+					  <th>Lugar</th>
+					  <th>Contexto</th>
+					  <th>Año</th>
+					  <th width="50px;">Evidencia</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($allData['presentaciones'] as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['nombre_actividad'] ?></td>
+							<td><?php echo $value['ano_presentacion'] ?></td>
+							<td><?php echo $value['tipo'] ?></td>
+							<td><?php echo $value['lugar'] ?></td>
+							<td><?php echo $value['contexto'] ?></td>
+							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+						</tr>
+					<?php endforeach ?>
+					<?php if (empty($allData['presentaciones'])): ?>
+						<tr>
+							<td colspan="6">No hay datos disponibles</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 10px;">
+	<div class="col-xs-12">
+		<b style="font-size: 20px;">9. Participación en actividades de actualización</b>
+		<div class="form-group">
+			<table id="example1" class="table table-responsive table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+					  <th>Nombre de la actividad</th>
+					  <th>Lugar</th>
+					  <th>Contexto</th>
+					  <th>Año inicio</th>
+					  <th>Año termino</th>
+					  <th width="50px;">Evidencia</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($allData['actividades_actualizacion'] as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['nombre_actividad'] ?></td>
+							<td><?php echo $value['lugar'] ?></td>
+							<td><?php echo $value['contexto'] ?></td>
+							<td><?php echo $value['ano_inicio'] ?></td>
+							<td><?php echo $value['ano_termino'] ?></td>
+							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+						</tr>
+					<?php endforeach ?>
+					<?php if (empty($allData['actividades_actualizacion'])): ?>
+						<tr>
+							<td colspan="6">No hay datos disponibles</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 10px;">
+	<div class="col-xs-12">
+		<b style="font-size: 20px;">10. Postítulos, pasantías de perfeccionamientos o becas</b>
+		<div class="form-group">
+			<table id="example1" class="table table-responsive table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+					  <th>Nombre de la actividad</th>
+					  <th>Lugar</th>
+					  <th>Año inicio</th>
+					  <th>Año termino</th>
+					  <th width="50px;">Evidencia</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($allData['postitulo_pasantias'] as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['nombre_actividad'] ?></td>
+							<td><?php echo $value['lugar'] ?></td>
+							<td><?php echo $value['ano_inicio'] ?></td>
+							<td><?php echo $value['ano_termino'] ?></td>
+							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+						</tr>
+					<?php endforeach ?>
+					<?php if (empty($allData['postitulo_pasantias'])): ?>
+						<tr>
+							<td colspan="5">No hay datos disponibles</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 10px;">
+	<div class="col-xs-12">
+		<b style="font-size: 20px;">11. Dirección de tesis</b>
+		<div class="form-group">
+			<table id="example1" class="table table-responsive table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+					  <th>Titulo</th>
+					  <th>Tipo</th>
+					  <th>Año inicio</th>
+					  <th>Año termino</th>
+					  <th width="50px;">Evidencia</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($allData['direccion_tesis'] as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['titulo'] ?></td>
+							<td><?php echo $value['tipo'] ?></td>
+							<td><?php echo $value['ano_inicio'] ?></td>
+							<td><?php echo $value['ano_termino'] ?></td>
+							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+						</tr>
+					<?php endforeach ?>
+					<?php if (empty($allData['direccion_tesis'])): ?>
+						<tr>
+							<td colspan="5">No hay datos disponibles</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 10px;">
+	<div class="col-xs-12">
+		<b style="font-size: 20px;">12. Proyectos de investigación o creación artística</b>
+		<div class="form-group">
+			<table id="example1" class="table table-responsive table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+					  <th>Nombre</th>
+					  <th>Tipo</th>
+					  <th>Financiamiento</th>
+					  <th>Estado</th>
+					  <th width="50px;">Evidencia</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($allData['investigacion'] as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['nombre_proyecto'] ?></td>
+							<td><?php echo $value['tipo'] ?></td>
+							<td><?php echo $value['financiamiento'] ?></td>
+							<td><?php echo $value['estado'] ?></td>
+							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+						</tr>
+					<?php endforeach ?>
+					<?php if (empty($allData['investigacion'])): ?>
+						<tr>
+							<td colspan="5">No hay datos disponibles</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 10px;">
+	<div class="col-xs-12">
+		<b style="font-size: 20px;">13. Conferencias dictadas</b>
+		<div class="form-group">
+			<table id="example1" class="table table-responsive table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+					  <th>Nombre</th>
+					  <th>Tipo</th>
+					  <th>Lugar</th>
+					  <th>Año</th>
+					  <th width="50px;">Evidencia</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($allData['conferencias'] as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['nombre'] ?></td>
+							<td><?php echo $value['tipo'] ?></td>
+							<td><?php echo $value['lugar'] ?></td>
+							<td><?php echo $value['ano'] ?></td>
+							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+						</tr>
+					<?php endforeach ?>
+					<?php if (empty($allData['conferencias'])): ?>
+						<tr>
+							<td colspan="5">No hay datos disponibles</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 10px;">
+	<div class="col-xs-12">
+		<b style="font-size: 20px;">14. Otras actividades</b>
+		<div class="form-group">
+			<table id="example1" class="table table-responsive table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+					  <th>Nombre</th>
+					  <th>Tipo</th>
+					  <th>Lugar</th>
+					  <th>Año</th>
+					  <th width="50px;">Evidencia</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($allData['otros_curriculum'] as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['nombre_actividad'] ?></td>
+							<td><?php echo $value['tipo'] ?></td>
+							<td><?php echo $value['lugar'] ?></td>
+							<td><?php echo $value['ano'] ?></td>
+							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+						</tr>
+					<?php endforeach ?>
+					<?php if (empty($allData['otros_curriculum'])): ?>
+						<tr>
+							<td colspan="5">No hay datos disponibles</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 10px;">
+	<div class="col-xs-12">
+		<b style="font-size: 20px;">15.Actividades sobre el aseguramiento de la calidad.</b>
+		<div class="form-group">
+			<table id="example1" class="table table-responsive table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+					  <th>Experiencia</th>
+					  <th>Cargo</th>
+					  <th>Año</th>
+					  <th>Semestre</th>
+					  <th width="50px;">Evidencia</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($allData['aseguramiento_calidad'] as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['experiencia'] ?></td>
+							<td><?php echo $value['cargo'] ?></td>
+							<td><?php echo $value['anio'] ?></td>
+							<td><?php echo $value['semestre'] ?></td>
+							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+						</tr>
+					<?php endforeach ?>
+					<?php if (empty($allData['aseguramiento_calidad'])): ?>
+						<tr>
+							<td colspan="5">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>

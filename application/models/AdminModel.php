@@ -72,16 +72,24 @@
 		 */
 
 		function getAllUserDataCurriculum($data){
-			$userData['personalData']            = $this->getUsuarioJoinProfesor($data);
-			$userData['facultades']              = $this->getUsuario_Facultad($data);
-			$userData['departamentos']           = $this->getUsuario_Departamento($data);
-			$userData['instituciones']           = $this->getInstitucion($data);
-			$userData['formacion_academica']     = $this->getFormacion_academica($data);
-			$userData['otros_compromisos']       = $this->getOtros_compromisos_academicos($data);
-			$userData['experiencia_docente']     = $this->getExperiencia_docente($data);
-			$userData['experiencia_profesional'] = $this->getExperiencia_profesional($data);
-			$userData['publicaciones']           = $this->getPublicaciones($data);
-			
+			$userData['personalData']              = $this->getUsuarioJoinProfesor($data);
+			$userData['facultades']                = $this->getUsuario_Facultad($data);
+			$userData['departamentos']             = $this->getUsuario_Departamento($data);
+			$userData['instituciones']             = $this->getInstitucion($data);
+			$userData['formacion_academica']       = $this->getFormacion_academica($data);
+			$userData['otros_compromisos']         = $this->getOtros_compromisos_academicos($data);
+			$userData['experiencia_docente']       = $this->getExperiencia_docente($data);
+			$userData['experiencia_profesional']   = $this->getExperiencia_profesional($data);
+			$userData['publicaciones']             = $this->getPublicaciones($data);
+			$userData['presentaciones']            = $this->getPresentaciones($data);
+			$userData['actividades_actualizacion'] = $this->getActividades_actualizacion($data);
+			$userData['postitulo_pasantias']       = $this->getPostitulo_pasantias($data);
+			$userData['direccion_tesis']           = $this->getDireccion_tesis($data);
+			$userData['investigacion']             = $this->getProyectos_investigacion($data);
+			$userData['conferencias']              = $this->getConferencias_dictadas($data);
+			$userData['otros_curriculum']          = $this->getOtras_actividades($data);
+			$userData['aseguramiento_calidad']     = $this->getAseguramiento_calidad($data);
+
 			return $userData;
 		}
 
@@ -179,6 +187,70 @@
 		function getPublicaciones($data){
 			$this->db->select('tipo, nombre, titulo_revista, numero_revista, ano_revista, archivo, estado_revista, indexacion');
 			$this->db->from('publicaciones');
+			$this->db->where('rut_usuario', $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function getPresentaciones($data){
+			$this->db->select('nombre_actividad, ano_presentacion, tipo, lugar, contexto, archivo');
+			$this->db->from('presentaciones');
+			$this->db->where('rut_usuario', $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function getActividades_actualizacion($data){
+			$this->db->select('nombre_actividad, lugar, contexto, ano_inicio, ano_termino, archivo');
+			$this->db->from('actividades_actualizacion');
+			$this->db->where('rut_usuario', $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function getPostitulo_pasantias($data){
+			$this->db->select('nombre_actividad, lugar, ano_inicio, ano_termino, archivo');
+			$this->db->from('postitulo_pasantias');
+			$this->db->where('rut_usuario', $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function getDireccion_tesis($data){
+			$this->db->select('titulo, tipo, ano_inicio, ano_termino, archivo');
+			$this->db->from('direccion_tesis');
+			$this->db->where('rut_usuario', $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function getProyectos_investigacion($data){
+			$this->db->select('tipo, nombre_proyecto, financiamiento, estado, archivo');
+			$this->db->from('investigacion');
+			$this->db->where('rut_usuario', $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function getConferencias_dictadas($data){
+			$this->db->select('tipo, nombre, lugar, ano, archivo');
+			$this->db->from('conferencias');
+			$this->db->where('rut_usuario', $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function getOtras_actividades($data){
+			$this->db->select('nombre_actividad, tipo, lugar, ano, archivo');
+			$this->db->from('otros_curriculum');
+			$this->db->where('rut_usuario', $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function getAseguramiento_calidad($data){
+			$this->db->select('experiencia, cargo, anio, semestre, archivo');
+			$this->db->from('aseguramiento_calidad');
 			$this->db->where('rut_usuario', $data);
 			$query = $this->db->get();
 			return $query->result_array();
