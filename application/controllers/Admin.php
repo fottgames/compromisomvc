@@ -13,11 +13,12 @@
 
 		public function Index(){
 			$data['titulo'] = "Administrador";
-			$this->session->set_userdata(array('r_usuario' => 18256317));
+			//$this->session->set_userdata(array('r_usuario' => 18256317));
 			if ($this->ValidarSession() == false) {
 					return;
 				}
 			$data['adminData'] = $this->AdminModel->getAdminPersonalData($this->session->userdata('r_usuario'));
+			$data['tipoAdmin'] = $this->AdminModel->getTipo_usuario($this->session->userdata('r_usuario'));
 			$this->load->view('plantilla/header', $data);
 			$this->load->view('plantilla/navbar');
 			$this->load->view('admin/index');
