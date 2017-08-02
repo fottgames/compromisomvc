@@ -151,7 +151,6 @@
 					  <th>Titulo</th>
 					  <th>Universidad</th>
 					  <th>Año obtencion</th>
-					  <th>Tipo</th>
 					  <th>Evidencia</th>
 					</tr>
 				</thead>
@@ -167,7 +166,7 @@
 
 					<?php if (empty($allData['otros_compromisos'])): ?>
 						<tr>
-							<td colspan="5">No hay datos disponibles</td>
+							<td colspan="4">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
