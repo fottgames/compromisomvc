@@ -9,7 +9,7 @@
 
 		function __construct(){
 			parent::__construct();
-			$this->load->model('AdminModel');
+			$this->load->model('AyudaModel');
 			$this->load->helper('form');
 			$this->load->library('pagination');
 			$this->load->library('table');
