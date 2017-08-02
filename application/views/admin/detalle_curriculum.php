@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col-xs-6">
 		<b style="font-size: 20px;">1. Datos personales</b>
 		<li><b>Rut: </b><?php echo $allData['personalData'][0]['rut_usuario']." - ".$allData['personalData'][0]['dv']; ?></li>
 		<li><b>Nombres: </b><?php echo $allData['personalData'][0]['nombre_usuario']; ?></li>
@@ -12,11 +12,8 @@
 		<li><b>Direccion: </b><?php echo $allData['personalData'][0]['direccion_particular']; ?></li>
 		<li><b>Celular: </b><?php echo $allData['personalData'][0]['celular']; ?></li>
 	</div>
-</div>
-<hr>
-<div class="row" style="margin-top: 10px;">
-	<div class="col-xs-12">
-		<b style="font-size: 20px;">2. Principal actividad academica desarrollada actualmente</b>
+	<div class="col-xs-6">
+		<b style="font-size: 20px;">2. Principal actividad academica actual</b>
 		<li><b>Correo institucional: </b><?php echo $allData['personalData'][0]['correo_institucional']; ?></li>
 		<li><b>Anexo: </b><?php echo $allData['personalData'][0]['telefono_laboral']; ?></li>
 		<li><b>Jerarquia: </b><?php echo $allData['personalData'][0]['jerarquia_academica']; ?></li>
@@ -109,6 +106,7 @@
 		</div>
 	</div>
 </div>
+<hr>
 <div class="row" style="margin-top: 10px;">
 	<div class="col-xs-12">
 		<b style="font-size: 20px;">3. Formacion academica</b>

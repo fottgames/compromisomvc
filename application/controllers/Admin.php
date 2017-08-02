@@ -105,5 +105,9 @@
 			return true;
 		}
 		//Fin ValidarSession.
+
+		public function isThisSession($userLevel){
+
+		}
 	}
 ?>
