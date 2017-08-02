@@ -8,7 +8,7 @@
 			</li>
 
 			<li>
-				<a href="index?view=encuestas"><i class="fa fa-file-text-o fa-fw"></i> Encuesta</a>
+				<a href="<?php echo base_url() ?>Encuesta/"><i class="fa fa-file-text-o fa-fw"></i> Encuesta</a>
 			</li>
 
 			<li>
@@ -36,6 +36,20 @@
 
 					<li>
 						<a href="<?php echo base_url() ?>Ayuda/SobreSistema/"><i class="fa fa-info"></i> &nbsp;&nbsp;Sobre el Sistema</a>
+					</li>
+
+				</ul>
+			</li>
+
+			<li>
+				<a href="#"><i class="fa fa-user-circle-o fa-fw"></i> Administrador<span class="fa arrow"></span></a>
+				<ul class="nav nav-second-level">
+					<li>
+						<a href="<?php echo base_url() ?>Admin/"><i class="fa fa-list"></i> Acciones</a>
+					</li>
+
+					<li>
+						<a href="<?php echo base_url() ?>Admin/ListaUsuarios"><i class="fa fa-list"></i> Lista de Usuarios</a>
 					</li>
 
 				</ul>
