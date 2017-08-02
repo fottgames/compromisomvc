@@ -242,3 +242,43 @@
 		</div>
 	</div>
 </div>
+<div class="row" style="margin-top: 10px;">
+	<div class="col-xs-12">
+		<b style="font-size: 20px;">7. Publicaciones</b>
+		<div class="form-group">
+			<table id="example1" class="table table-responsive table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+					  <th>Tipo</th>
+					  <th>Nombre</th>
+					  <th>Titulo Revista</th>
+					  <th>Numero Revista</th>
+					  <th>Año Revista</th>
+					  <th>Estado Revista</th>
+					  <th>Indexacion</th>
+					  <th>Archivo</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($allData['publicaciones'] as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['tipo'] ?></td>
+							<td><?php echo $value['nombre'] ?></td>
+							<td><?php echo $value['titulo_revista'] ?></td>
+							<td><?php echo $value['numero_revista'] ?></td>
+							<td><?php echo $value['ano_revista'] ?></td>
+							<td><?php echo $value['estado_revista'] ?></td>
+							<td><?php echo $value['indexacion'] ?></td>
+							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+						</tr>
+					<?php endforeach ?>
+					<?php if (empty($allData['experiencia_docente'])): ?>
+						<tr>
+							<td colspan="8">No hay datos disponibles</td>
+						</tr>
+					<?php endif ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
