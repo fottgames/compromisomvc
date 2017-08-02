@@ -1,5 +1,12 @@
 
-<div class="navbar-default sidebar" role="navigation">
+<div class="navbar-default sidebar" role="navigation" style="margin-top:0px;">
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="text-center">Compromiso académico</h3>
+		</div>
+	</div>
+
 	<div class="sidebar-nav navbar-collapse">
 		<ul class="nav" id="side-menu">
 			
