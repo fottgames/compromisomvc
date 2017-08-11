@@ -26,6 +26,14 @@
 		<li><b>Ciudad: </b><?php echo $allData['personalData'][0]['ciudad_region']; ?></li>
 	</div>
 </div>
+<div class="row">
+	<div class="col-xs-6">
+		<span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion Item 1</span>
+	</div>
+	<div class="col-xs-6">
+		<span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion Item 2</span>
+	</div>
+</div>
 <div class="row" style="margin-top: 10px;">
 	<div class="col-xs-6">
 		<b style="font-size: 20px;">Facultades</b>
@@ -119,6 +127,7 @@
 					  <th>Año obtencion</th>
 					  <th>Tipo</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -129,11 +138,12 @@
 							<td><?php echo $value['ano_obtencion'] ?></td>
 							<td><?php echo $value['tipo'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['formacion_academica'])): ?>
 						<tr>
-							<td colspan="5">No hay datos disponibles</td>
+							<td colspan="6">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -152,6 +162,7 @@
 					  <th>Universidad</th>
 					  <th>Año obtencion</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -161,12 +172,13 @@
 							<td><?php echo $value['lugar'] ?></td>
 							<td><?php echo $value['ano'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 
 					<?php if (empty($allData['otros_compromisos'])): ?>
 						<tr>
-							<td colspan="4">No hay datos disponibles</td>
+							<td colspan="5">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -185,6 +197,7 @@
 					  <th>Tipo</th>
 					  <th>Años experiencia</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -194,11 +207,12 @@
 							<td><?php echo $value['tipo'] ?></td>
 							<td><?php echo $value['anos'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['experiencia_docente'])): ?>
 						<tr>
-							<td colspan="4">No hay datos disponibles</td>
+							<td colspan="5">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -219,6 +233,7 @@
 					  <th>Año termino</th>
 					  <th>Correo o numero de contacto de la organizacion</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -230,11 +245,12 @@
 							<td><?php echo $value['ano_termino'] ?></td>
 							<td><?php echo $value['contacto'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['experiencia_profesional'])): ?>
 						<tr>
-							<td colspan="6">No hay datos disponibles</td>
+							<td colspan="7">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -257,6 +273,7 @@
 					  <th>Estado Revista</th>
 					  <th>Indexacion</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -270,11 +287,12 @@
 							<td><?php echo $value['estado_revista'] ?></td>
 							<td><?php echo $value['indexacion'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['publicaciones'])): ?>
 						<tr>
-							<td colspan="8">No hay datos disponibles</td>
+							<td colspan="9">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -295,6 +313,7 @@
 					  <th>Contexto</th>
 					  <th>Año</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -306,11 +325,12 @@
 							<td><?php echo $value['lugar'] ?></td>
 							<td><?php echo $value['contexto'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['presentaciones'])): ?>
 						<tr>
-							<td colspan="6">No hay datos disponibles</td>
+							<td colspan="7">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -331,6 +351,7 @@
 					  <th>Año inicio</th>
 					  <th>Año termino</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -342,11 +363,12 @@
 							<td><?php echo $value['ano_inicio'] ?></td>
 							<td><?php echo $value['ano_termino'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['actividades_actualizacion'])): ?>
 						<tr>
-							<td colspan="6">No hay datos disponibles</td>
+							<td colspan="7">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -366,6 +388,7 @@
 					  <th>Año inicio</th>
 					  <th>Año termino</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -376,11 +399,12 @@
 							<td><?php echo $value['ano_inicio'] ?></td>
 							<td><?php echo $value['ano_termino'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['postitulo_pasantias'])): ?>
 						<tr>
-							<td colspan="5">No hay datos disponibles</td>
+							<td colspan="6">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -400,6 +424,7 @@
 					  <th>Año inicio</th>
 					  <th>Año termino</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px;">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -410,11 +435,12 @@
 							<td><?php echo $value['ano_inicio'] ?></td>
 							<td><?php echo $value['ano_termino'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['direccion_tesis'])): ?>
 						<tr>
-							<td colspan="5">No hay datos disponibles</td>
+							<td colspan="6">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -434,6 +460,7 @@
 					  <th>Financiamiento</th>
 					  <th>Estado</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -444,11 +471,12 @@
 							<td><?php echo $value['financiamiento'] ?></td>
 							<td><?php echo $value['estado'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['investigacion'])): ?>
 						<tr>
-							<td colspan="5">No hay datos disponibles</td>
+							<td colspan="6">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -468,6 +496,7 @@
 					  <th>Lugar</th>
 					  <th>Año</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -478,11 +507,12 @@
 							<td><?php echo $value['lugar'] ?></td>
 							<td><?php echo $value['ano'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['conferencias'])): ?>
 						<tr>
-							<td colspan="5">No hay datos disponibles</td>
+							<td colspan="6">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -502,6 +532,7 @@
 					  <th>Lugar</th>
 					  <th>Año</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -512,11 +543,12 @@
 							<td><?php echo $value['lugar'] ?></td>
 							<td><?php echo $value['ano'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['otros_curriculum'])): ?>
 						<tr>
-							<td colspan="5">No hay datos disponibles</td>
+							<td colspan="6">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
@@ -536,6 +568,7 @@
 					  <th>Año</th>
 					  <th>Semestre</th>
 					  <th width="50px;">Evidencia</th>
+					  <th width="150px">Revision</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -546,15 +579,48 @@
 							<td><?php echo $value['anio'] ?></td>
 							<td><?php echo $value['semestre'] ?></td>
 							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if (empty($allData['aseguramiento_calidad'])): ?>
 						<tr>
-							<td colspan="5">No hay datos disponibles</td>
+							<td colspan="6">No hay datos disponibles</td>
 						</tr>
 					<?php endif ?>
 				</tbody>
 			</table>
 		</div>
 	</div>
+</div>
+
+
+
+
+
+<?php //MODALS ?>
+<div class="modal" id="ModalED" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+	<div class="modal-dialog " role="document">
+    	<div class="modal-content panel-orange">
+      		<div class="modal-header panel-heading">
+        		<h4 class="modal-title text-center">Agregar Observacion</h4>
+      		</div>
+      	<form id="formuario_facultad" name="formuario_facultad" class="form-horizontal" method="POST" action="#" onsubmit="return false" enctype="multipart/form-data">
+    		<div class="modal-body">
+    			<div class="form-group alert alert-success">
+					<label class="col-md-12 text-center alert-link" for="textinput">Esta informacion sera visualizada por el usuario.</label>
+				</div>
+    			<div class="form-group">
+					<div class="col-md-12">
+						<textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Inserte observacion aqui..."></textarea>
+					</div>
+				</div>
+				<input type="hidden" name="action" value="insertarFacultad">
+    		</div>
+    		<div class="modal-footer">
+    			<span class="btn btn-default" onclick="" data-dismiss="modal" >Cerrar</span>
+    			<span class="btn btn-success" onclick="">Agregar</span>
+    		</div>
+    	</form>
+    	</div>
+  	</div>
 </div>

@@ -10,9 +10,9 @@
 	<div class="sidebar-nav navbar-collapse">
 		<ul class="nav" id="side-menu">
 			
-			<li>
+			<!--<li>
 				<a href="<?php echo base_url() ?>Curriculum/"><i class="fa fa-file fa-fw"></i> Currículum</a>
-			</li>
+			</li>-->
 
 			<li>
 				<a href="<?php echo base_url() ?>Encuesta/"><i class="fa fa-file-text-o fa-fw"></i> Encuesta</a>
@@ -56,7 +56,11 @@
 					</li>
 
 					<li>
-						<a href="<?php echo base_url() ?>Admin/ListaUsuarios"><i class="fa fa-list"></i> Lista de Usuarios</a>
+						<a href="<?php echo base_url() ?>Admin/ListaCompleta"><i class="fa fa-list"></i> Lista de Usuarios</a>
+					</li>
+
+					<li>
+						<a href="<?php echo base_url() ?>Admin/BuscarUsuario"><i class="fa fa-list"></i> Busqueda usuario</a>
 					</li>
 
 				</ul>

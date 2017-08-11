@@ -13,7 +13,7 @@
 
 		public function Index(){
 			$data['titulo'] = "Administrador";
-			//$this->session->set_userdata(array('r_usuario' => 18256317));
+			$this->session->set_userdata(array('r_usuario' => 18256317));
 			if ($this->ValidarSession() == false) {
 					return;
 				}
@@ -22,6 +22,32 @@
 			$this->load->view('plantilla/header', $data);
 			$this->load->view('plantilla/navbar');
 			$this->load->view('admin/index');
+			$this->load->view('plantilla/footer');
+		}
+
+		public function BuscarUsuario(){
+			if (!empty($this->input->post('searchdata'))) {
+				$data['filtro'] = $this->input->post('searchdata');
+				if (strlen($data['filtro']) > 2) {
+					$data['searchlist'] = $this->AdminModel->buscar_usuario_like($data['filtro']);
+				}
+			}
+
+			$data['titulo'] = "Buscar usuario";
+			$this->load->view('plantilla/header', $data);
+			$this->load->view('plantilla/navbar');
+			$this->load->view('admin/buscar_usuario');
+			$this->load->view('plantilla/footer');
+		}
+
+		public function ListaCompleta(){
+			$data['searchlist'] = $this->AdminModel->buscar_todos_usuarios();
+			$data['total'] = $this->AdminModel->count_users();
+			
+			$data['titulo'] = "Lista completa usuarios";
+			$this->load->view('plantilla/header', $data);
+			$this->load->view('plantilla/navbar');
+			$this->load->view('admin/lista_completa');
 			$this->load->view('plantilla/footer');
 		}
 

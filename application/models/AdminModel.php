@@ -255,5 +255,53 @@
 			$query = $this->db->get();
 			return $query->result_array();
 		}
+
+		/* |-----------------------------------------------------------------
+		 * | FIN FUNCIONES CURRICULUM
+		 * |-----------------------------------------------------------------
+		 */
+
+		/* |-----------------------------------------------------------------
+		 * | Funciones asociadas a las busquedas de usuario
+		 * |-----------------------------------------------------------------
+		 * | Las siguientes funciones 
+		 */
+
+		function buscar_usuario_like($data){
+			$this->db->select('
+				usuario.nombre_usuario as nombre, 
+				usuario.apellido_paterno as ap_pat, 
+				usuario.apellido_materno as ap_mat, 
+				profesor.rut_usuario as rut'
+				);
+			$this->db->from('profesor');
+			$this->db->join('usuario', 'usuario.rut_usuario = profesor.rut_usuario', 'left');
+			$this->db->like('profesor.rut_usuario', $data);
+			$this->db->or_like('usuario.nombre_usuario', $data);
+			$this->db->or_like('usuario.apellido_paterno', $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function buscar_todos_usuarios(){
+			$this->db->select('
+				usuario.nombre_usuario as nombre, 
+				usuario.apellido_paterno as ap_pat, 
+				usuario.apellido_materno as ap_mat, 
+				profesor.rut_usuario as rut,
+				usuario.dv'
+				);
+			$this->db->from('profesor');
+			$this->db->join('usuario', 'usuario.rut_usuario = profesor.rut_usuario', 'left');
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function count_users(){
+			$this->db->select('COUNT(id_profesor) as total');
+			$this->db->from('profesor');
+			$query = $this->db->get();
+			return $query->result_array();
+		}
 	}
 ?>
