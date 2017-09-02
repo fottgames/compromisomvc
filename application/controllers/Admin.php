@@ -41,7 +41,26 @@
 		}
 
 		public function ListaCompleta(){
-			$data['searchlist'] = $this->AdminModel->buscar_todos_usuarios();
+			/* |buscar_todos_usuarios_esperados(boolean)
+			 * |----------------------------------------
+			 * | true: Busca a todos los usuarios marcandos como esperados que hayan ingresado al sistema.
+			 * | false: Busca todos los usuarios marcados como NO esperados que hayan ingresado al sistema.
+			 */
+
+			$data['searchlist_esperados'] = $this->AdminModel->buscar_todos_usuarios_esperados(true);
+			foreach ($data['searchlist_esperados'] as $key => $value) {
+				$data['searchlist_esperados'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+			}
+			
+			$data['searchlist_no_esperados'] = $this->AdminModel->buscar_todos_usuarios_esperados(false);
+			foreach ($data['searchlist_no_esperados'] as $key => $value) {
+				$data['searchlist_no_esperados'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+			}
+
+			$data['searchlist_esperados_no_ingresado'] = $this->AdminModel->buscar_usuarios_no_ingresado();
+			foreach ($data['searchlist_esperados_no_ingresado'] as $key => $value) {
+				$data['searchlist_esperados_no_ingresado'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+			}
 			$data['total'] = $this->AdminModel->count_users();
 			
 			$data['titulo'] = "Lista completa usuarios";

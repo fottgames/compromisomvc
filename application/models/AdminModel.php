@@ -283,16 +283,44 @@
 			return $query->result_array();
 		}
 
-		function buscar_todos_usuarios(){
+		function buscar_todos_usuarios_esperados($data){
 			$this->db->select('
 				usuario.nombre_usuario as nombre, 
 				usuario.apellido_paterno as ap_pat, 
 				usuario.apellido_materno as ap_mat, 
 				profesor.rut_usuario as rut,
-				usuario.dv'
+				usuario.dv,
+				profesor.id_profesor'
 				);
 			$this->db->from('profesor');
 			$this->db->join('usuario', 'usuario.rut_usuario = profesor.rut_usuario', 'left');
+			$this->db->order_by("id_profesor", "asc");
+			$this->db->where("usuario.usuario_esperado", $data);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function buscar_usuarios_no_ingresado(){
+			$this->db->select('
+				usuario.nombre_usuario as nombre, 
+				usuario.apellido_paterno as ap_pat, 
+				usuario.apellido_materno as ap_mat, 
+				usuario.dv,
+				usuario.rut_usuario as rut'
+				);
+			$this->db->from('usuario');
+			$this->db->join('profesor', 'usuario.rut_usuario = profesor.rut_usuario', 'left');
+			$this->db->where("usuario.usuario_esperado", 1);
+			$this->db->where("profesor.estado_curriculum", null);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function getUserFacultades($data){
+			$this->db->select('nombre_facultad');
+			$this->db->from('usuario_facultad');
+			$this->db->join('facultad', 'facultad.id_facultad = usuario_facultad.id_facultad');
+			$this->db->where('rut_usuario', $data);
 			$query = $this->db->get();
 			return $query->result_array();
 		}

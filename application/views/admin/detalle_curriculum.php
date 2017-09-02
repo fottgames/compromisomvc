@@ -2,7 +2,7 @@
 	<div class="col-xs-6">
 		<b style="font-size: 20px;">1. Datos personales</b>
 		<li><b>Rut: </b><?php echo $allData['personalData'][0]['rut_usuario']." - ".$allData['personalData'][0]['dv']; ?></li>
-		<li><b>Nombres: </b><?php echo $allData['personalData'][0]['nombre_usuario']; ?></li>
+		<li><b>Nombres: </b><?php echo $allData['personalData'][0]['nombre_usuario']." ".$allData['personalData'][0]['apellido_paterno']." ".$allData['personalData'][0]['apellido_materno']; ?></li>
 		<li><b>Fecha nacimiento: </b><?php echo $allData['personalData'][0]['fecha_nacimiento']; ?></li>
 		<li><b>Nacionalidad: </b><?php echo $allData['personalData'][0]['nacionalidad']; ?></li>
 		<?php if ($allData['personalData'][0]['nacionalidad'] != 'CHILENO'): ?>

@@ -5,28 +5,96 @@ El numero de usuarios que han ingresado al sistema es: <b><?php echo $total[0]['
 
 <div><b>Busqueda por Nombre, Rut, Apellido: <a href="<?php base_url()?>BuscarUsuario">Busqueda</a></b></div><br>
 <div class="row">
-			<div class="form-group">
-				<div class="col-md-12 table-responsive">
-					<table id="example1" class="table table-bordered table-striped">
-						<thead>
-							<tr>
-							  <th>Rut</th>
-							  <th>Nombre</th>
-							  <th width="120px">Acciones</th>
-							  
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach ($searchlist as $key => $value): ?>
-								<tr>
-									<td><?php echo $value['rut']." - ".$value['dv']; ?></td>
-									<td><?php echo $value['nombre']." ".$value['ap_pat']." ".$value['ap_mat']; ?></td>
-									<td><a href="<?php echo base_url().'Admin/Curriculum/'.$value['rut']; ?>">Ver Curriculum</a></td>
-									
-								</tr>
-							<?php endforeach ?>
-						</tbody>
-					</table>
-				</div>
-			</div>
+	<div class="form-group">
+		<div class="col-md-12 table-responsive">
+			<b style="font-size: 20px;" class="text-success">Usuarios esperados que han ingresado:</b>
+			<table id="example1" class="table table-bordered table-striped table-condensed">
+				<thead>
+					<tr>
+					  <th>Rut</th>
+					  <th>Nombre</th>
+					  <th>Facultades</th>
+					  <th>Ultima conexion</th>
+					  <th width="120px">Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($searchlist_esperados as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['rut']." - ".$value['dv']; ?></td>
+							<td><?php echo $value['nombre']." ".$value['ap_pat']." ".$value['ap_mat']; ?></td>
+							<td><?php foreach ($value['facultades'] as $key2 => $value2) {
+								echo $value2['nombre_facultad'];
+								echo '<br>';
+							} ?></td>
+							<td></td>
+							<td><a href="<?php echo base_url().'Admin/Curriculum/'.$value['rut']; ?>">Ver Curriculum</a></td>
+						</tr>
+					<?php endforeach ?>
+				</tbody>
+			</table>
 		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="form-group">
+		<div class="col-md-12 table-responsive">
+			<b style="font-size: 20px;" class="text-warning">Usuarios esperados que NO han ingresado:</b>
+			<table id="example1" class="table table-bordered table-striped table-condensed">
+				<thead>
+					<tr>
+					  <th>Rut</th>
+					  <th>Nombre</th>
+					  <th>Facultades</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($searchlist_esperados_no_ingresado as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['rut']." - ".$value['dv']; ?></td>
+							<td><?php echo $value['nombre']." ".$value['ap_pat']." ".$value['ap_mat']; ?></td>
+							<td><?php foreach ($value['facultades'] as $key2 => $value2) {
+								echo $value2['nombre_facultad'];
+								echo '<br>';
+							} ?></td>
+						</tr>
+					<?php endforeach ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="form-group">
+		<div class="col-md-12 table-responsive">
+			<b style="font-size: 20px;" class="text-danger">Usuarios <b>NO</b> esperados:</b>
+			<table id="example1" class="table table-bordered table-striped table-condensed">
+				<thead>
+					<tr>
+					  <th>Rut</th>
+					  <th>Nombre</th>
+					  <th>Facultades</th>
+					  <th>Ultima conexion</th>
+					  <th width="120px">Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($searchlist_no_esperados as $key => $value): ?>
+						<tr>
+							<td><?php echo $value['rut']." - ".$value['dv']; ?></td>
+							<td><?php echo $value['nombre']." ".$value['ap_pat']." ".$value['ap_mat']; ?></td>
+							<td><?php foreach ($value['facultades'] as $key2 => $value2) {
+								echo $value2['nombre_facultad'];
+								echo '<br>';
+							} ?></td>
+							<td></td>
+							<td><a href="<?php echo base_url().'Admin/Curriculum/'.$value['rut']; ?>">Ver Curriculum</a></td>
+						</tr>
+					<?php endforeach ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
