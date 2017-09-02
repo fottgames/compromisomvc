@@ -30,6 +30,7 @@
 						<tr>
 						  	<th>Rut</th>
 						  	<th>Nombre</th>
+						  	<th>Facultades</th>
 						  	<th>Acciones</th>
 						</tr>
 					</thead>
@@ -38,6 +39,10 @@
 							<tr>
 								<td><?php echo $value['rut'] ?></td>
 								<td><?php echo $value['nombre']." ".$value['ap_pat']." ".$value['ap_mat']; ?></td>
+								<td><?php foreach ($value['facultades'] as $key2 => $value2) {
+								echo $value2['nombre_facultad'];
+								echo '<br>';
+								} ?></td>
 								<td><a href="<?php echo base_url().'Admin/Curriculum/'.$value['rut']; ?>">Ver Curriculum</a></td>
 							</tr>
 						<?php endforeach ?>

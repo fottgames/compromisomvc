@@ -30,9 +30,11 @@
 				$data['filtro'] = $this->input->post('searchdata');
 				if (strlen($data['filtro']) > 2) {
 					$data['searchlist'] = $this->AdminModel->buscar_usuario_like($data['filtro']);
+					foreach ($data['searchlist'] as $key => $value) {
+						$data['searchlist'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+					}
 				}
 			}
-
 			$data['titulo'] = "Buscar usuario";
 			$this->load->view('plantilla/header', $data);
 			$this->load->view('plantilla/navbar');
