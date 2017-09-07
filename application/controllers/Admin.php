@@ -49,20 +49,47 @@
 			 * | false: Busca todos los usuarios marcados como NO esperados que hayan ingresado al sistema.
 			 */
 
-			$data['searchlist_esperados'] = $this->AdminModel->buscar_todos_usuarios_esperados(true);
-			foreach ($data['searchlist_esperados'] as $key => $value) {
-				$data['searchlist_esperados'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
-			}
+			$data['facultades'] = $this->AdminModel->getAllFacultades();
+
+			if (isset($_REQUEST['filter'])) 
+			{
+				$filtro['facultad'] = $this->input->post('filter');
+				
+
+				$data['searchlist_esperados'] = $this->AdminModel->buscar_todos_usuarios_esperados_filtrados(true, $filtro['facultad'] );
+				foreach ($data['searchlist_esperados'] as $key => $value) {
+					$data['searchlist_esperados'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+				}
+
+				$data['searchlist_no_esperados'] = $this->AdminModel->buscar_todos_usuarios_esperados_filtrados(false, $filtro['facultad']);
+				foreach ($data['searchlist_no_esperados'] as $key => $value) {
+					$data['searchlist_no_esperados'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+				}
+
+				$data['searchlist_esperados_no_ingresado'] = $this->AdminModel->buscar_usuarios_no_ingresado_filtrado($filtro['facultad']);
+				foreach ($data['searchlist_esperados_no_ingresado'] as $key => $value) {
+					$data['searchlist_esperados_no_ingresado'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+				}
+
+
+			}else{
+				$data['searchlist_esperados'] = $this->AdminModel->buscar_todos_usuarios_esperados(true);
+				foreach ($data['searchlist_esperados'] as $key => $value) {
+					$data['searchlist_esperados'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+				}
 			
 			$data['searchlist_no_esperados'] = $this->AdminModel->buscar_todos_usuarios_esperados(false);
-			foreach ($data['searchlist_no_esperados'] as $key => $value) {
-				$data['searchlist_no_esperados'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
-			}
+				foreach ($data['searchlist_no_esperados'] as $key => $value) {
+					$data['searchlist_no_esperados'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+				}
 
 			$data['searchlist_esperados_no_ingresado'] = $this->AdminModel->buscar_usuarios_no_ingresado();
-			foreach ($data['searchlist_esperados_no_ingresado'] as $key => $value) {
-				$data['searchlist_esperados_no_ingresado'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+				foreach ($data['searchlist_esperados_no_ingresado'] as $key => $value) {
+					$data['searchlist_esperados_no_ingresado'][$key]['facultades'] = $this->AdminModel->getUserFacultades($value['rut']);
+				}
 			}
+
+			
 			$data['total'] = $this->AdminModel->count_users();
 			
 			$data['titulo'] = "Lista completa usuarios";

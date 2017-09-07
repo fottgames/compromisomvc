@@ -300,6 +300,25 @@
 			return $query->result_array();
 		}
 
+		function buscar_todos_usuarios_esperados_filtrados($data, $facultad){
+			$this->db->select('
+				usuario.nombre_usuario as nombre, 
+				usuario.apellido_paterno as ap_pat, 
+				usuario.apellido_materno as ap_mat, 
+				profesor.rut_usuario as rut,
+				usuario.dv,
+				profesor.id_profesor'
+				);
+			$this->db->from('profesor');
+			$this->db->join('usuario', 'usuario.rut_usuario = profesor.rut_usuario', 'left');
+			$this->db->join('usuario_facultad', 'usuario.rut_usuario = usuario_facultad.rut_usuario', 'left');
+			$this->db->order_by("id_profesor", "asc");
+			$this->db->where("usuario.usuario_esperado", $data);
+			$this->db->where('usuario_facultad.id_facultad', $facultad);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
 		function buscar_usuarios_no_ingresado(){
 			$this->db->select('
 				usuario.nombre_usuario as nombre, 
@@ -312,6 +331,24 @@
 			$this->db->join('profesor', 'usuario.rut_usuario = profesor.rut_usuario', 'left');
 			$this->db->where("usuario.usuario_esperado", 1);
 			$this->db->where("profesor.estado_curriculum", null);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		function buscar_usuarios_no_ingresado_filtrado($facultad){
+			$this->db->select('
+				usuario.nombre_usuario as nombre, 
+				usuario.apellido_paterno as ap_pat, 
+				usuario.apellido_materno as ap_mat, 
+				usuario.dv,
+				usuario.rut_usuario as rut'
+				);
+			$this->db->from('usuario');
+			$this->db->join('profesor', 'usuario.rut_usuario = profesor.rut_usuario', 'left');
+			$this->db->join('usuario_facultad', 'usuario.rut_usuario = usuario_facultad.rut_usuario', 'left');
+			$this->db->where("usuario.usuario_esperado", 1);
+			$this->db->where("profesor.estado_curriculum", null);
+			$this->db->where('usuario_facultad.id_facultad', $facultad);
 			$query = $this->db->get();
 			return $query->result_array();
 		}

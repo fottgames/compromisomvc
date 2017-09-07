@@ -4,6 +4,21 @@ El numero de usuarios que han ingresado al sistema es: <b><?php echo $total[0]['
 <b>X</b> No han llenado nada del curriculum.<br>
 
 <div><b>Busqueda por Nombre, Rut, Apellido: <a href="<?php base_url()?>BuscarUsuario">Busqueda</a></b></div><br>
+<div>
+Filtro:
+	<form action="" method="POST">
+		<select name="filter">
+			<?php  
+				foreach ($facultades as $key => $value) {
+					echo '<option value='.$value['id_facultad'].'>'.$value['nombre_facultad'].'</option>';
+				}
+			?>
+			<input type="submit" value="Filtrar">
+		</select>
+	</form>
+	<a href="">Quitar filtro.</a>
+</div>
+<br>
 <div class="row">
 	<div class="form-group">
 		<div class="col-md-12 table-responsive">
