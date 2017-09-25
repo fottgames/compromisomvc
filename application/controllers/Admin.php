@@ -11,7 +11,7 @@
 			$this->load->library('session');
 			$this->load->helper('generic');
 			$this->load->library('encryption');
-			$this->load->library('webservice');
+			//$this->load->library('WebService');
 		}
 
 		public function Index(){
@@ -83,14 +83,14 @@
 		}
 
 		private function CrearPerfil($rut){
-			$data['titulo'] = 'Crear Perfil';
-			$data['userdata'] = $this->webservice->getDatos_v2('GET', 'persona', array('recurso' => 'datos',  'variable' => 'rut', 'valor' =>$rut));
+			/*$data['titulo'] = 'Crear Perfil';
+			$data['userdata'] = $this->WebService->getDatos_v2('GET', 'persona', array('recurso' => 'datos',  'variable' => 'rut', 'valor' =>$rut));
 			if ($data['userdata']['status'] == 1) {
 				print_r($data['userdata']);
 				generarVista('admin/crear_perfil', $data);
 			}else{
 				errorMessage("Usuario no se encuentra en el webservice", "El usuario solicitado no se encuentra en el webservice");
-			}
+			}*/
 		}
 
 		private function EditarPerfil($rut){

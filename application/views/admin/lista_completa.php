@@ -27,16 +27,18 @@ Filtro:
 			<table id="example1" class="table table-bordered table-striped table-condensed">
 				<thead>
 					<tr>
-					  <th>Rut</th>
-					  <th>Nombre</th>
-					  <th>Facultades</th>
-					  <th>Ultima conexion</th>
-					  <th width="120px">Acciones</th>
+						<th>#</th>
+					  	<th>Rut</th>
+					  	<th>Nombre</th>
+					  	<th>Facultades</th>
+					  	<th>Ultima conexion</th>
+					  	<th width="120px">Acciones</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach ($searchlist_esperados as $key => $value): ?>
 						<tr>
+							<td><?php echo $key+1 ?></td>
 							<td><?php echo $value['rut']."-".$value['dv']; ?></td>
 							<td><?php echo $value['nombre']." ".$value['ap_pat']." ".$value['ap_mat']; ?></td>
 							<td><?php foreach ($value['facultades'] as $key2 => $value2) {
@@ -61,6 +63,7 @@ Filtro:
 			<table id="example1" class="table table-bordered table-striped table-condensed">
 				<thead>
 					<tr>
+						<th>#</th>
 					  <th>Rut</th>
 					  <th>Nombre</th>
 					  <th>Facultades</th>
@@ -71,6 +74,7 @@ Filtro:
 				<tbody>
 					<?php foreach ($searchlist_no_esperados as $key => $value): ?>
 						<tr>
+							<td><?php echo $key+1 ?></td>
 							<td><?php echo $value['rut']."-".$value['dv']; ?></td>
 							<td><?php echo $value['nombre']." ".$value['ap_pat']." ".$value['ap_mat']; ?></td>
 							<td><?php foreach ($value['facultades'] as $key2 => $value2) {
@@ -95,6 +99,7 @@ Filtro:
 			<table id="example1" class="table table-bordered table-striped table-condensed">
 				<thead>
 					<tr>
+						<th>#</th>
 					  <th>Rut</th>
 					  <th>Nombre</th>
 					  <th>Facultades</th>
@@ -103,6 +108,7 @@ Filtro:
 				<tbody>
 					<?php foreach ($searchlist_esperados_no_ingresado as $key => $value): ?>
 						<tr>
+							<td><?php echo $key+1 ?></td>
 							<td><?php echo $value['rut']."-".$value['dv']; ?></td>
 							<td><?php echo $value['nombre']." ".$value['ap_pat']." ".$value['ap_mat']; ?></td>
 							<td><?php foreach ($value['facultades'] as $key2 => $value2) {
