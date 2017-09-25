@@ -23,9 +23,26 @@
 			return $query->result_array();
 		}
 
+		//Obtiene todas las conexiones de un usuario en particular
+		function getAllConnections($rut_usuario){
+			$this->db->select('fecha_hora');
+			$this->db->from('log_usuario');
+			$this->db->where('rut_usuario', $rut_usuario);
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
 		//Devuelve todas las facultades en la base de datos con su respectiva id
 		function getAllFacultades(){
 			$query = $this->db->get('facultad');
+			return $query->result_array();
+		}
+
+		function getFacultad($id){
+			$this->db->select('nombre_facultad');
+			$this->db->from('facultad');
+			$this->db->where('id_facultad', $id);
+			$query = $this->db->get();
 			return $query->result_array();
 		}
 
@@ -36,6 +53,23 @@
 			$this->db->where('id_facultad', $data);
 			$query = $this->db->get();
 			return $query->result_array();
+		}
+
+		function getUserData($rut_usuario){
+			$this->db->select('
+				usuario.rut_usuario, 
+				usuario.dv, 
+				usuario.nombre_usuario, 
+				usuario.apellido_paterno, 
+				usuario.apellido_materno, 
+				tipo_usuario.nombre as tipo_usuario,
+				usuario.estado_usuario,
+				usuario.usuario_esperado');
+			$this->db->from('usuario');
+			$this->db->where('rut_usuario', $rut_usuario);
+			$this->db->join('tipo_usuario', 'usuario.tipo_usuario = tipo_usuario.id', 'left');
+			$query = $this->db->get();
+			return $query->result_array(); 
 		}
 
 		//Valida si un usuario existe en la base de datos, devuelve true si es asi, de lo contrario devuelve false.
@@ -367,6 +401,34 @@
 			$this->db->from('profesor');
 			$query = $this->db->get();
 			return $query->result_array();
+		}
+
+		//Funciones relativas al setusuario
+
+		function setUsuarioEsperado($esEsperado, $rut){
+			$data = array('usuario_esperado' => $esEsperado);
+			$this->db->where('rut_usuario', $rut);
+			$this->db->update('usuario', $data);
+		}
+
+		function setUsuarioFacultad($idFacultad, $rut){
+			$data = array('id_facultad' => $idFacultad, 'rut_usuario' => $rut);
+			$this->db->insert('usuario_facultad', $data);
+		}
+
+		//Devuelve true si el usuario tiene la facultad, sino devuelve false
+		function isFacultadInUser($id_facultad, $rut){
+			$this->db->select('id_facultad');
+			$this->db->from('usuario_facultad');
+			$this->db->where('rut_usuario', $rut);
+			$this->db->where('id_facultad', $id_facultad);
+			$result = $this->db->get();
+			
+			if ($result->num_rows() >= 1) {
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 ?>

@@ -137,7 +137,7 @@
 							<td><?php echo $value['universidad'] ?></td>
 							<td><?php echo $value['ano_obtencion'] ?></td>
 							<td><?php echo $value['tipo'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -171,7 +171,7 @@
 							<td><?php echo $value['nombre'] ?></td>
 							<td><?php echo $value['lugar'] ?></td>
 							<td><?php echo $value['ano'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -206,7 +206,7 @@
 							<td><?php echo $value['asignatura'] ?></td>
 							<td><?php echo $value['tipo'] ?></td>
 							<td><?php echo $value['anos'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -244,7 +244,7 @@
 							<td><?php echo $value['ano_inicio'] ?></td>
 							<td><?php echo $value['ano_termino'] ?></td>
 							<td><?php echo $value['contacto'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -286,7 +286,7 @@
 							<td><?php echo $value['ano_revista'] ?></td>
 							<td><?php echo $value['estado_revista'] ?></td>
 							<td><?php echo $value['indexacion'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -324,7 +324,7 @@
 							<td><?php echo $value['tipo'] ?></td>
 							<td><?php echo $value['lugar'] ?></td>
 							<td><?php echo $value['contexto'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -362,7 +362,7 @@
 							<td><?php echo $value['contexto'] ?></td>
 							<td><?php echo $value['ano_inicio'] ?></td>
 							<td><?php echo $value['ano_termino'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -398,7 +398,7 @@
 							<td><?php echo $value['lugar'] ?></td>
 							<td><?php echo $value['ano_inicio'] ?></td>
 							<td><?php echo $value['ano_termino'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -434,7 +434,7 @@
 							<td><?php echo $value['tipo'] ?></td>
 							<td><?php echo $value['ano_inicio'] ?></td>
 							<td><?php echo $value['ano_termino'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -470,7 +470,7 @@
 							<td><?php echo $value['tipo'] ?></td>
 							<td><?php echo $value['financiamiento'] ?></td>
 							<td><?php echo $value['estado'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -506,7 +506,7 @@
 							<td><?php echo $value['tipo'] ?></td>
 							<td><?php echo $value['lugar'] ?></td>
 							<td><?php echo $value['ano'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -542,7 +542,7 @@
 							<td><?php echo $value['tipo'] ?></td>
 							<td><?php echo $value['lugar'] ?></td>
 							<td><?php echo $value['ano'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>
@@ -578,7 +578,7 @@
 							<td><?php echo $value['cargo'] ?></td>
 							<td><?php echo $value['anio'] ?></td>
 							<td><?php echo $value['semestre'] ?></td>
-							<td><span class="btn btn-info btn-xs">Descarga</span></td>
+							<td><a class="btn btn-info btn-xs" href="<?php echo $url_core ?>archivos/<?php echo $rut_usuario ?>/curriculum/<?php echo $value['archivo'] ?>" download="<?php echo $value['archivo']; ?>" alt="Descargar" title="Descargar">Descarga</a></td>
 							<td>Correcto: <input type="checkbox" >Si <input type="checkbox">No <span class="text-center btn btn-warning btn-block btn-xs" data-toggle="modal" data-target="#ModalED"><i class="fa fa-plus"></i> Observacion</span></td>
 						</tr>
 					<?php endforeach ?>

@@ -9,6 +9,9 @@
 			$this->load->model('AdminModel');
 			$this->load->helper('form');
 			$this->load->library('session');
+			$this->load->helper('generic');
+			$this->load->library('encryption');
+			$this->load->library('webservice');
 		}
 
 		public function Index(){
@@ -42,19 +45,107 @@
 			$this->load->view('plantilla/footer');
 		}
 
+		public function EditarUsuario(){
+			$data['postdata'] = $this->input->post();
+			if (!empty($data['postdata'])) {
+				$userdata = $this->AdminModel->getUserData($data['postdata']['rut']);
+				$userdata = $userdata[0];
+				$data['titulo'] = "Usuario actualizado";
+				$data['status']['cantidad_cambios'] = 0;
+				$data['status']['usuario_esperado'] = "";
+				$data['status']['facultad'] = "";
+
+				//Actualiza el usuario esperado
+				if ($data['postdata']['esperado'] == 1 || $data['postdata']['esperado'] == 0) {
+					if ($userdata['usuario_esperado'] != $data['postdata']['esperado']) {
+						$this->AdminModel->setUsuarioEsperado($data['postdata']['esperado'], $data['postdata']['rut']);
+						$data['status']['usuario_esperado'] = "<span class='text-success'>El usuario ahora es esperado</span>";
+						$data['status']['cantidad_cambios']++;
+					}
+				}
+				
+				//Agrega la facultad al usuario
+				if (is_numeric($data['postdata']['facultad'])) {
+					if (!$this->AdminModel->isFacultadInUser($data['postdata']['facultad'], $data['postdata']['rut'])) {
+						$this->AdminModel->setUsuarioFacultad($data['postdata']['facultad'], $data['postdata']['rut']);
+						$nombrefacultad = $this->AdminModel->getFacultad($data['postdata']['facultad']);
+						$data['status']['facultad'] = "<span class='text-success'>Se ha agregado la facultad: </span><b>".$nombrefacultad[0]['nombre_facultad']."</b>";
+						$data['status']['cantidad_cambios']++;
+					}else{
+						$data['status']['facultad'] = "<span class='text-danger'>El usuario ya pertenece a esta facultad</span>";
+					}
+				}
+				//Se genera la vista
+				generarVista('admin/asignar_usuario', $data);
+			}else{
+				errorMessage("Error no existen datos", "Usted no ha enviado ningun dato para editar");
+			}
+		}
+
+		private function CrearPerfil($rut){
+			$data['titulo'] = 'Crear Perfil';
+			$data['userdata'] = $this->webservice->getDatos_v2('GET', 'persona', array('recurso' => 'datos',  'variable' => 'rut', 'valor' =>$rut));
+			if ($data['userdata']['status'] == 1) {
+				print_r($data['userdata']);
+				generarVista('admin/crear_perfil', $data);
+			}else{
+				errorMessage("Usuario no se encuentra en el webservice", "El usuario solicitado no se encuentra en el webservice");
+			}
+		}
+
+		private function EditarPerfil($rut){
+			$data['titulo'] = 'Perfil';
+			$data['userdata'] = $this->AdminModel->getUserData($rut);
+			$data['userdata'][0]['facultades'] = $this->AdminModel->getUserFacultades($rut);
+			$data['userdata'] = $data['userdata'][0];
+			$data['facultades'] = $this->AdminModel->getAllFacultades();
+			generarVista('admin/perfil_usuario', $data);
+		}
+
+		public function Perfil()
+		{
+			$data['rut'] = $this->uri->segment(3);
+			if (!empty($data['rut'])) {
+				if ($this->AdminModel->isUserinBD($data['rut'])) {
+					//Mostrar perfil
+					$this->EditarPerfil($data['rut']);
+				}else{
+					//Mostrar creador de perfil
+					$this->CrearPerfil($data['rut']);
+				}
+			}else{
+				errorMessage("No existe rut", "Porfavor ingrese un rut valido");
+			}
+		}
+
+		public function RegistroConexiones(){
+			//Esta funcion usa el helper "Generic"
+			if ($this->uri->segment(3)) {
+				//Validaciones
+				$data['rut'] = $this->uri->segment(3);
+				buscarUsuario_BD($data['rut']);
+				//Construir Pagina
+				$data['titulo'] = 'Registro de conexiones';
+				$data['registro_conexion'] = $this->AdminModel->getAllConnections($data['rut']);
+				$data['userData'] = $this->AdminModel->getUserData($data['rut']);
+				//Genera el Template de la vista + La vista pasada, adicionalmente le pasamos los datos.
+				generarVista('admin/registro_conexiones', $data);
+			}
+		}
+
 		public function ListaCompleta(){
 			/* |buscar_todos_usuarios_esperados(boolean)
 			 * |----------------------------------------
 			 * | true: Busca a todos los usuarios marcandos como esperados que hayan ingresado al sistema.
 			 * | false: Busca todos los usuarios marcados como NO esperados que hayan ingresado al sistema.
 			 */
-
+			//echo $this->config->item('current_app_year');
 			$data['facultades'] = $this->AdminModel->getAllFacultades();
 
 			if (isset($_REQUEST['filter'])) 
 			{
 				$filtro['facultad'] = $this->input->post('filter');
-				
+
 
 				$data['searchlist_esperados'] = $this->AdminModel->buscar_todos_usuarios_esperados_filtrados(true, $filtro['facultad'] );
 				foreach ($data['searchlist_esperados'] as $key => $value) {
@@ -117,6 +208,8 @@
 
 		public function Curriculum($rut_usuario=null)
 		{	
+			$data['url_core'] = $this->config->item('compromiso_base_url');
+			$data['rut_usuario'] = $rut_usuario;
 			$rut = $rut_usuario;
 
 			if (empty($rut)) {
